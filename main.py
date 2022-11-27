@@ -1,49 +1,26 @@
-from tkinter import *
+from random import randint
 import requests
+import cripto
 import json
-import time
-
-master = Tk()
-master.title("TELA TESTE API")
-master.geometry("490x560+610+2")
-master.iconbitmap(default="icones\\ico.ico")
-master.resizable(width=1, height=1)  # type: ignore
-
-# Funções
-def nova_janela():
-    master.destroy()
-    time.sleep(0.3)
-
-    master1 = Tk()
-    master1.title("Nova Janela criada!!")
-    master1.geometry("490x560+400+153")
-
-
-# Variáveis globais
-esconda_senha = StringVar()
-
-# Importar imagens
-img_fundo = PhotoImage(file="imagens\\fundo.png")
-img_botao = PhotoImage(file="imagens\\bt-img.png")
-
-# Criação de labels
-lab_fundo = Label(master, image=img_fundo)
-lab_fundo.pack()
-
-# Criação de caixas de entrada
-en_token = Entry(master, bd=2, font=("Calibri", 15), justify=CENTER)
-en_token.place(width=392, height=45, x=49, y=138)
-
-en_email = Entry(master, bd=2, font=("Calibri", 15), justify=CENTER)
-en_email.place(width=392, height=45, x=49, y=244)
-
-en_senha = Entry(master, textvariable=esconda_senha, show="*", bd=2, font=("Calibri", 15), justify=CENTER)
-en_senha.place(width=392, height=45, x=49, y=355)
-
-request = requests.get(f"http://192.168.0.150:5000/get/getlogin?login={en_token}&senha={en_senha}")
-todos = json.loads(request.content)
-# Criação de botões
-bt_entrar = Button(master, bd=0, image=img_botao, command=nova_janela)
-bt_entrar.place(width=118, height=64, x=186, y=448)
-
-master.mainloop()
+import eel
+  
+eel.init("web")  
+  
+# Exposing the random_python function to javascript
+@eel.expose    
+def random_python(login,senha):
+    try:
+        trylogin = requests.get(f'http://192.168.0.150:5000/get/getlogin?login={login}&senha={senha}')
+        responselogin = trylogin.content.decode('utf-8')
+        # print(responselogin,type(responselogin))
+        if responselogin == 'ACEITO':
+            return 'LOGADO COM SUCESSO' 
+        elif responselogin == 'SENHA INCORRETA':
+            return 'SENHA INCORRETA'
+        else:
+            return 'LOGIN INCORRETO'
+    except:
+        return'ERRO O SISTEMA ENCONTRA-SE INOPERANTE NO MOMENTO. CONTATE A AREA RESPONSÁVEL.'
+  
+# Start the index.html file
+eel.start("index.html")
