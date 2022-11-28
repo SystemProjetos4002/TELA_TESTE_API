@@ -40,6 +40,7 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
+  /* background-color: #333333; */
 }
 
 /*---------------------------------------------*/
@@ -72,6 +73,11 @@ a:hover {
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
+
+#h1id{
+  font-size: 0.65em;
+}
+
 
 p {
 	font-family: Poppins-Regular;
@@ -175,11 +181,12 @@ iframe {
   align-items: center;
   padding: 15px;
   background: #f2f2f2;  
+  background: #666666;  
 }
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background: #333333;
   border-radius: 10px;
   overflow: hidden;
   padding: 77px 55px 33px 55px;
@@ -203,7 +210,7 @@ iframe {
   display: block;
   font-family: Poppins-Bold;
   font-size: 30px;
-  color: #333333;
+  color: #fff;
   line-height: 1.2;
   text-align: center;
 }
@@ -224,7 +231,7 @@ iframe {
 .input100 {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #555555;
+  color: #fff;
   line-height: 1.2;
 
   display: block;
@@ -289,7 +296,7 @@ iframe {
 .input100:focus + .focus-input100::after {
   top: -15px;
 }
-
+wrap-login100
 .input100:focus + .focus-input100::before {
   width: 100%;
 }
@@ -388,7 +395,7 @@ iframe {
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 15px;
-  color: #fff;
+  color: #333333;
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -431,8 +438,8 @@ iframe {
   content: attr(data-validate);
   position: absolute;
   max-width: 70%;
-  background-color: #fff;
-  border: 1px solid #c80000;
+  background-color: #333333;
+  border: 1px solid #fff;
   border-radius: 2px;
   padding: 4px 25px 4px 10px;
   top: 50%;
@@ -445,7 +452,7 @@ iframe {
   pointer-events: none;
 
   font-family: Poppins-Regular;
-  color: #c80000;
+  color: #fff;
   font-size: 13px;
   line-height: 1.4;
   text-align: left;
@@ -463,11 +470,11 @@ iframe {
   content: "\f06a";
   font-family: FontAwesome;
   font-size: 16px;
-  color: #c80000;
+  color: #fff;
 
   display: block;
   position: absolute;
-  background-color: #fff;
+  background-color: #333333;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
