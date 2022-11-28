@@ -11,7 +11,7 @@ eel.init("web")
 def tentativa_login(login: str,senha : str):
     try:
 
-        trylogin = requests.get(f'http://192.168.0.150:5000/get/getlogin?login={login}&senha={senha}')
+        trylogin = requests.get(f'http://192.168.3.18:5000/get/getlogin?login={login}&senha={senha}')
         
         responselogin = trylogin.content.decode('utf-8')
       
@@ -71,7 +71,7 @@ try:
         
         senhadec = cripto.decriptar(bytes(senha.encode('utf-8'))).decode('utf-8')  
         
-        trylogin = requests.get(f'http://192.168.0.150:5000/get/getlogin?login={logindec}&senha={senhadec}')
+        trylogin = requests.get(f'http://192.168.3.18:5000/get/getlogin?login={logindec}&senha={senhadec}')
         
         
         if trylogin.content.decode('utf-8') != 'ACEITO':
