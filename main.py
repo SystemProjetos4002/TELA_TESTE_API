@@ -78,9 +78,8 @@ try:
             logindec = cripto.decriptar(bytes(login.encode('utf-8'))).decode('utf-8')
             
             senhadec = cripto.decriptar(bytes(senha.encode('utf-8'))).decode('utf-8')  
-            
+        
             trylogin = requests.get(f'http://{iplocal}:{porta}/get/getlogin?login={logindec}&senha={senhadec}')
-            
             
             if trylogin.content.decode('utf-8') != 'ACEITO':
             
