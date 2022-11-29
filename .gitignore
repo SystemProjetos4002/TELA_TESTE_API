@@ -154,3 +154,5 @@ cython_debug/
 source-env
 session.json
 source-env/
+config.json
+config.json
